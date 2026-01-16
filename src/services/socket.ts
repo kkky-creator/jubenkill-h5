@@ -1,4 +1,4 @@
-import { User, Room, Message, GameStatus } from '../types/index';
+import { Room, Message } from '../types/index';
 import { useStore } from '../store';
 import { io, Socket } from 'socket.io-client';
 import { generateMockScript } from '../utils/scriptParser';
