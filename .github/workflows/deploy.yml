@@ -20,8 +20,12 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
+      - name: Deploy to docs folder
+        run: |
+          rm -rf docs
+          cp -r dist docs
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs
+          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
+          git push origin main
