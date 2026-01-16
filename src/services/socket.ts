@@ -6,7 +6,7 @@ import { generateMockScript } from '../utils/scriptParser';
 // 真实的Socket.io服务，连接到后端服务器
 class SocketService {
   public socket: Socket | null = null;
-  private baseUrl = 'http://localhost:3001';
+  private baseUrl = 'https://jubenkill-backend.onrender.com';
 
   // 连接到服务器
   connect(userId: string, userName: string) {
@@ -202,7 +202,7 @@ class SocketService {
       roomId: currentRoom.id,
       clueId
     });
-  }
+    }
 
   // 投票
   vote(characterId: string) {
